@@ -38,12 +38,12 @@ class AdRepoGremlin(
 
     val initializedObjects: List<MkplAd>
 
-    private val cluster = Cluster.build().apply {
-            addContactPoint("localhost")
-            port(port)
-            credentials(user, pass)
-            enableSsl(false)
-        }.create()
+    private val cluster = Cluster.build()
+        .addContactPoint("localhost")
+        .port(port)
+        .credentials(user, pass)
+        .enableSsl(false)
+        .create()
 
     private val g = traversal().withRemote(DriverRemoteConnection.using(cluster, "g"))
 
