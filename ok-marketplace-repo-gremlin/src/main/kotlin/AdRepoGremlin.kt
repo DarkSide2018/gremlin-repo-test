@@ -40,7 +40,7 @@ class AdRepoGremlin(
 
     private val cluster = Cluster.build().apply {
             addContactPoint("localhost")
-            port(8182)
+            port(port)
             credentials(user, pass)
             enableSsl(false)
         }.create()
