@@ -32,7 +32,7 @@ class AdRepoGremlin(
     private val port: Int = 8182,
     private val enableSsl: Boolean = false,
     private val user: String = "root",
-    private val pass: String = "",
+    private val pass: String = "root_root",
     initObjects: List<MkplAd> = emptyList(),
     initRepo: ((GraphTraversalSource) -> Unit)? = null,
     val randomUuid: () -> String = { uuid4().toString() },
@@ -51,6 +51,7 @@ class AdRepoGremlin(
     private val g by lazy { traversal().withRemote(DriverRemoteConnection.using(cluster)) }
 
     init {
+
         if (initRepo != null) {
             initRepo(g)
         }

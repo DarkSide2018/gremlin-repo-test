@@ -26,7 +26,6 @@ dependencies {
     testImplementation(project(":ok-marketplace-repo-tests"))
 
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.apache.tinkerpop:gremlin-driver:$tinkerpopVersion")
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-gremlin:$arcadeDbVersion")
