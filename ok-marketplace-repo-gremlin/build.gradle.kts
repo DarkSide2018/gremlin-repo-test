@@ -10,6 +10,7 @@ sourceSets {
         java.srcDir(generatedPath)
     }
 }
+val arcadeDbVersion: String by project
 
 dependencies {
     val tinkerpopVersion: String by project
@@ -25,13 +26,13 @@ dependencies {
     testImplementation(project(":ok-marketplace-repo-tests"))
 
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.apache.tinkerpop:gremlin-driver:$tinkerpopVersion")
+    implementation("com.arcadedb:arcadedb-gremlin:$arcadeDbVersion")
 
     testImplementation(kotlin("test-junit"))
     testImplementation("org.testcontainers:testcontainers:$testContainersVersion")
 }
 
-val arcadeDbVersion: String by project
+
 
 tasks {
     val gradleConstants by creating {

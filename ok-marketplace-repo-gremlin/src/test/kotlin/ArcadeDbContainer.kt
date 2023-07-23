@@ -12,6 +12,9 @@ object ArcadeDbContainer {
     init {
         container.waitingFor(Wait.forLogMessage(".*ArcadeDB Server started.*\\n", 1))
         container.withStartupTimeout(Duration.ofMinutes(5))
+        container.withAccessToHost(true)
+        container.isHostAccessible = true
+        container.withReuse(true)
         container.start()
         println("ARCADE: http://${container.host}:${container.getMappedPort(2480)}")
         println("ARCADE: http://${container.host}:${container.getMappedPort(2424)}")

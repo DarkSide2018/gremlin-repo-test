@@ -38,17 +38,15 @@ class AdRepoGremlin(
 
     val initializedObjects: List<MkplAd>
 
-    private val cluster by lazy {
-        Cluster.build().apply {
+    private val cluster = Cluster.build().apply {
             addContactPoints(hosts)
             port(port)
             credentials(user, pass)
-            enableSsl(true)
+            enableSsl(false)
         }.create()
-    }
-    private val g by lazy {
-        traversal().withRemote(DriverRemoteConnection.using(cluster))
-    }
+
+    private val g = traversal().withRemote(DriverRemoteConnection.using(cluster, "g"))
+
     init {
 
         if (initRepo != null) {
