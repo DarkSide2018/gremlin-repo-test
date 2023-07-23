@@ -8,7 +8,6 @@ class AdRepoGremlinSearchTest: RepoAdSearchTest() {
         AdRepoGremlin(
             hosts = ArcadeDbContainer.container.host,
             port = ArcadeDbContainer.container.getMappedPort(8182),
-            enableSsl = false,
             user = ArcadeDbContainer.username,
             pass = ArcadeDbContainer.password,
             initObjects = initObjects,

@@ -29,7 +29,6 @@ import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.`__` as gr
 class AdRepoGremlin(
     private val hosts: String,
     private val port: Int = 8182,
-    private val enableSsl: Boolean = false,
     private val user: String = "root",
     private val pass: String = "root_root",
     initObjects: List<MkplAd> = emptyList(),
@@ -44,7 +43,7 @@ class AdRepoGremlin(
             addContactPoints(hosts)
             port(port)
             credentials(user, pass)
-            enableSsl(enableSsl)
+            enableSsl(true)
         }.create()
     }
     private val g by lazy {

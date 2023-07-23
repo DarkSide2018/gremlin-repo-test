@@ -11,7 +11,6 @@ class AdRepoGremlinDeleteTest : RepoAdDeleteTest() {
             port = ArcadeDbContainer.container.getMappedPort(8182),
             user = ArcadeDbContainer.username,
             pass = ArcadeDbContainer.password,
-            enableSsl = false,
             initObjects = initObjects,
             initRepo = { g -> g.V().drop().iterate() },
         )
