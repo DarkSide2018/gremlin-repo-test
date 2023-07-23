@@ -12,7 +12,6 @@ sourceSets {
 }
 
 dependencies {
-    val arcadeDbVersion: String by project
     val tinkerpopVersion: String by project
     val coroutinesVersion: String by project
     val kmpUUIDVersion: String by project
@@ -26,9 +25,7 @@ dependencies {
     testImplementation(project(":ok-marketplace-repo-tests"))
 
     implementation(kotlin("stdlib-jdk8"))
-    implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
-    implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
-    implementation("com.arcadedb:arcadedb-gremlin:$arcadeDbVersion")
+    implementation("org.apache.tinkerpop:gremlin-driver:$tinkerpopVersion")
 
     testImplementation(kotlin("test-junit"))
     testImplementation("org.testcontainers:testcontainers:$testContainersVersion")

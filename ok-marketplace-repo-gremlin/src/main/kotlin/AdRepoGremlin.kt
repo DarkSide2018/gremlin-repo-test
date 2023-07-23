@@ -14,7 +14,6 @@ import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.AdGremlinConst.
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.AdGremlinConst.FIELD_TITLE
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.AdGremlinConst.FIELD_TMP_RESULT
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.AdGremlinConst.RESULT_LOCK_FAILURE
-import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.exceptions.DbDuplicatedElementsException
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.mappers.addMkplAd
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.mappers.label
 import ru.otus.otuskotlin.marketplace.backend.repository.gremlin.mappers.listMkplAd
@@ -288,7 +287,6 @@ class AdRepoGremlin(
                 errorAdministration(
                     violationCode = "duplicateObjects",
                     description = "Database consistency failure",
-                    exception = DbDuplicatedElementsException("Db contains multiple elements for id = '$key'")
                 )
             )
         )
