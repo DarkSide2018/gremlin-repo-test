@@ -28,7 +28,13 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
-#    runs-on: macos-latest
+    services:
+      # Label used to access the service container
+      arcade:
+        # Docker Hub image
+        image: arcadedata/arcadedb:latest
+        env:
+          JAVA_OPTS: -Darcadedb.server.rootPassword=root_root -Darcadedb.server.plugins=GremlinServer:com.arcadedb.server.gremlin.GremlinServerPlugin -Darcadedb.ssl.enabled=false
     steps:
       - uses: actions/checkout@v3
 

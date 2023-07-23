@@ -24,8 +24,6 @@ object ArcadeDbContainer {
     fun createContainer(): GenericContainer<*> {
        return GenericContainer(DockerImageName.parse("arcadedata/arcadedb:latest"))
             .withExposedPorts(2480, 2424, 8182)
-            .withEnv("arcadedb.server.plugins", "GremlinServer:com.arcadedb.server.gremlin.GremlinServerPlugin")
-
             .withEnv(
                 "JAVA_OPTS", "-Darcadedb.server.rootPassword=$password " +
                         "-Darcadedb.server.plugins=GremlinServer:com.arcadedb.server.gremlin.GremlinServerPlugin -Darcadedb.ssl.enabled=false"

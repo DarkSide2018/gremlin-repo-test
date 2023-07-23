@@ -39,8 +39,8 @@ class AdRepoGremlin(
     val initializedObjects: List<MkplAd>
 
     private val cluster = Cluster.build().apply {
-            addContactPoints(hosts)
-            port(port)
+            addContactPoints("localhost")
+            port(8182)
             credentials(user, pass)
             enableSsl(false)
         }.create()

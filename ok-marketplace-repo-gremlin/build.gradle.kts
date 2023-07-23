@@ -35,19 +35,6 @@ dependencies {
 
 
 tasks {
-    val gradleConstants by creating {
-        file("$generatedPath/GradleConstants.kt").apply {
-            ensureParentDirsCreated()
-            writeText(
-                """
-                    package ru.otus.otuskotlin.marketplace.backend.repository.gremlin
-                    
-                    const val ARCADEDB_VERSION = "$arcadeDbVersion"
-                """.trimIndent()
-            )
-        }
-    }
-    compileKotlin.get().dependsOn(gradleConstants)
 //    test.configure { this.enabled = false }
 }
 
